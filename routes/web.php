@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/main', 'App\Http\Controllers\SecondController@index'); 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
